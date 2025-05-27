@@ -162,7 +162,10 @@ def list_available_networks():
     available_network_hash_lookup.clear()
     forbidden_network_aliases.update({"none": 1, "Addams": 1})
 
-    os.makedirs(shared.cmd_opts.lora_dir, exist_ok=True)
+    try:
+        os.makedirs(shared.cmd_opts.lora_dir, exist_ok=True)
+    except:
+        pass
 
     process_network_files()
 
